@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<context:component-scan base-package="com.jpmorgan.*"></context:component-scan>
+
+<!-- Currencies -->
+
+	<bean id="currencyUSD" class="com.jpmorgan.beans.Currency">
+		<property name="symbol" value="USD"></property>		
+	</bean>
+	
+	<bean id="currencyAED" class="com.jpmorgan.beans.Currency">
+		<property name="symbol" value="AED"></property>
+		<property name="agreededFx" value="0.2"></property>
+	</bean>
+	
+	<bean id="currencySAR" class="com.jpmorgan.beans.Currency">
+		<property name="symbol" value="SAR"></property>
+		<property name="agreededFx" value="0.5"></property>
+	</bean>
+	
+	<bean id="currencyTGH" class="com.jpmorgan.beans.Currency">
+		<property name="symbol" value="TGH"></property>
+		<property name="agreededFx" value="0.3"></property>
+	</bean>
+	
+	<bean id="currencyIDS" class="com.jpmorgan.beans.Currency">
+		<property name="symbol" value="IDS"></property>
+		<property name="agreededFx" value="0.3"></property>
+	</bean>
+	
+<!-- Entities --> 	
+ 
+	<bean id="entityFoo" class="com.jpmorgan.beans.Entity">
+		<property name="name" value="Foo"></property>
+	</bean>
+	
+	<bean id="entityBar" class="com.jpmorgan.beans.Entity">
+		<property name="name" value="Bar"></property>
+	</bean>
+	
+	<bean id="entityOne" class="com.jpmorgan.beans.Entity">
+		<property name="name" value="One"></property>
+	</bean>
+	
+	<bean id="entityTwo" class="com.jpmorgan.beans.Entity">
+		<property name="name" value="Twoo"></property>
+	</bean>
+	
+	<bean id="entityThree" class="com.jpmorgan.beans.Entity">
+		<property name="name" value="Three"></property>
+	</bean>
+
+<!-- TypesOfTrade -->
+
+	<bean id="sellTradeType" class="com.jpmorgan.beans.TradeType">
+		<constructor-arg>
+        	<value type="com.jpmorgan.beans.TradeType.TypeOfTrade">S</value>
+    	</constructor-arg>
+	</bean>
+	<bean id="buyTradeType" class="com.jpmorgan.beans.TradeType">
+		<constructor-arg>
+        	<value type="com.jpmorgan.beans.TradeType.TypeOfTrade">B</value>
+    	</constructor-arg>
+	</bean>
+
+<!-- Trades -->
+
+	<bean id="trade1" class="com.jpmorgan.beans.Trade">
+		<property name="cur" ref="currencyUSD"></property>
+		<property name="ent" ref="entityFoo"></property>
+		<property name="tt" ref="buyTradeType"></property>
+		<property name="instructionDate" value="01 Jan 2016 "></property>
+		<property name="settlementDate" value="02 Jan 2016 "></property>
+		<property name="units" value="300"></property>
+		<property name="pricePerUnit" value="100.25"></property>		
+	</bean>
+	
+	<bean id="trade2" class="com.jpmorgan.beans.Trade">
+		<property name="cur" ref="currencyAED"></property>
+		<property name="ent" ref="entityBar"></property>
+		<property name="tt" ref="sellTradeType"></property>
+		<property name="instructionDate" value="01 Jan 2016 "></property>
+		<property name="settlementDate" value="02 Jan 2016 "></property>
+		<property name="units" value="400"></property>
+		<property name="pricePerUnit" value="150.5"></property>		
+	</bean>
+
+	<bean id="trade3" class="com.jpmorgan.beans.Trade">
+		<property name="cur" ref="currencySAR"></property>
+		<property name="ent" ref="entityOne"></property>
+		<property name="tt" ref="sellTradeType"></property>
+		<property name="instructionDate" value="01 Jan 2016 "></property>
+		<property name="settlementDate" value="02 Jan 2016 "></property>
+		<property name="units" value="500"></property>
+		<property name="pricePerUnit" value="125.5"></property>		
+	</bean>
+	
+	<bean id="trade4" class="com.jpmorgan.beans.Trade">
+		<property name="cur" ref="currencyUSD"></property>
+		<property name="ent" ref="entityTwo"></property>
+		<property name="tt" ref="buyTradeType"></property>
+		<property name="instructionDate" value="01 Jan 2016 "></property>
+		<property name="settlementDate" value="01 Jan 2016 "></property>
+		<property name="units" value="300"></property>
+		<property name="pricePerUnit" value="100.25"></property>		
+	</bean>
+	
+	<bean id="trade5" class="com.jpmorgan.beans.Trade">
+		<property name="cur" ref="currencyAED"></property>
+		<property name="ent" ref="entityBar"></property>
+		<property name="tt" ref="buyTradeType"></property>
+		<property name="instructionDate" value="01 Jan 2016 "></property>
+		<property name="settlementDate" value="01 Jan 2016 "></property>
+		<property name="units" value="400"></property>
+		<property name="pricePerUnit" value="150.5"></property>		
+	</bean>
+
+	<bean id="trade6" class="com.jpmorgan.beans.Trade">
+		<property name="cur" ref="currencyAED"></property>
+		<property name="ent" ref="entityThree"></property>
+		<property name="tt" ref="sellTradeType"></property>
+		<property name="instructionDate" value="02 Jan 2016 "></property>
+		<property name="settlementDate" value="03 Jan 2016 "></property>
+		<property name="units" value="200"></property>
+		<property name="pricePerUnit" value="115.5"></property>		
+	</bean>
+	
+	<bean id="trade7" class="com.jpmorgan.beans.Trade">
+		<property name="cur" ref="currencyUSD"></property>
+		<property name="ent" ref="entityFoo"></property>
+		<property name="tt" ref="buyTradeType"></property>
+		<property name="instructionDate" value="02 Jan 2016 "></property>
+		<property name="settlementDate" value="03 Jan 2016 "></property>
+		<property name="units" value="300"></property>
+		<property name="pricePerUnit" value="100.25"></property>		
+	</bean>
+	
+	<bean id="trade8" class="com.jpmorgan.beans.Trade">
+		<property name="cur" ref="currencyAED"></property>
+		<property name="ent" ref="entityBar"></property>
+		<property name="tt" ref="sellTradeType"></property>
+		<property name="instructionDate" value="03 Jan 2016 "></property>
+		<property name="settlementDate" value="04 Jan 2016 "></property>
+		<property name="units" value="400"></property>
+		<property name="pricePerUnit" value="150.5"></property>		
+	</bean>
+
+	<bean id="trade9" class="com.jpmorgan.beans.Trade">
+		<property name="cur" ref="currencySAR"></property>
+		<property name="ent" ref="entityOne"></property>
+		<property name="tt" ref="sellTradeType"></property>
+		<property name="instructionDate" value="04 Jan 2016 "></property>
+		<property name="settlementDate" value="04 Jan 2016 "></property>
+		<property name="units" value="500"></property>
+		<property name="pricePerUnit" value="125.5"></property>		
+	</bean>
+	
+	<bean id="trade10" class="com.jpmorgan.beans.Trade">
+		<property name="cur" ref="currencyTGH"></property>
+		<property name="ent" ref="entityTwo"></property>
+		<property name="tt" ref="buyTradeType"></property>
+		<property name="instructionDate" value="05 Jan 2016 "></property>
+		<property name="settlementDate" value="05 Jan 2016 "></property>
+		<property name="units" value="300"></property>
+		<property name="pricePerUnit" value="100.25"></property>		
+	</bean>
+	
+	<bean id="trade11" class="com.jpmorgan.beans.Trade">
+		<property name="cur" ref="currencyIDS"></property>
+		<property name="ent" ref="entityBar"></property>
+		<property name="tt" ref="buyTradeType"></property>
+		<property name="instructionDate" value="07 Jan 2016 "></property>
+		<property name="settlementDate" value="08 Jan 2016 "></property>
+		<property name="units" value="200"></property>
+		<property name="pricePerUnit" value="150.5"></property>		
+	</bean>
+
+	<bean id="trade12" class="com.jpmorgan.beans.Trade">
+		<property name="cur" ref="currencyAED"></property>
+		<property name="ent" ref="entityThree"></property>
+		<property name="tt" ref="buyTradeType"></property>
+		<property name="instructionDate" value="07 Jan 2016 "></property>
+		<property name="settlementDate" value="07 Jan 2016 "></property>
+		<property name="units" value="100"></property>
+		<property name="pricePerUnit" value="115.5"></property>		
+	</bean>
+</beans>
