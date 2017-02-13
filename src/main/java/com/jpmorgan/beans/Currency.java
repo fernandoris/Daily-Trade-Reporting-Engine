@@ -32,6 +32,9 @@ public class Currency implements ICurrency{
 		return weekEnds;
 	}
 	
+	/**
+	 * Function that initializes the weekends depending on the currency
+	 */
 	private void init(){
 		int ws = 2;
 		int we = 6;
@@ -41,6 +44,7 @@ public class Currency implements ICurrency{
 		}else if(this.symbol.equals("USD")){
 			ws = 2;
 			we = 6;
+			//I suppose if the currency is USD the agreededFX is 1
 			this.agreededFx = 1;
 		}else{
 			ws = 2;
@@ -55,6 +59,7 @@ public class Currency implements ICurrency{
 	}
 
 	public void setAgreededFx(double agreededFx) {
+		//I prevent agreededFX change if the currency is USD
 		if(!this.symbol.equals("USD"))
 			this.agreededFx = agreededFx;
 	}

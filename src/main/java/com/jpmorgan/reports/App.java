@@ -12,7 +12,9 @@ import com.jpmorgan.beans.Trade;
 public class App 
 {
 	public static ApplicationContext appContext = new ClassPathXmlApplicationContext("com/jpmorgan/beans/beans.xml");
+	//Queue of trades
 	public static LinkedBlockingQueue<Trade> queue = new LinkedBlockingQueue<Trade>();
+	//Maps for rankings
 	public static Ranking rankingIncoming = new Ranking("Incoming Ranking:");
 	public static Ranking rankingOutgoing = new Ranking("Outgoing Ranking:");
 
@@ -33,7 +35,10 @@ public class App
     
     
     /**
-     * Function that load the Queue with data from beans
+     * Function that load the Queue with data from beans.
+     * I thought of using a socket to collect the input data but would have needed another program to 
+     * send the data to the socket. I also thought about loading the data from an input file but 
+     * I found it more elegant to use Spring
      */
     private static void loadQueue(){
     	

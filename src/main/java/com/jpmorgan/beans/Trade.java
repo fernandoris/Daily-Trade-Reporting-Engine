@@ -41,6 +41,10 @@ public class Trade {
 		this.tt = tt;
 		try {
 			this.instructionDate = this.sdf.parse(instructionDate);
+			/*
+			 * I used the setSettlementDate to initialize the param to force settlement date 
+			 * not to fall on weekend
+			 */
 			this.setSettlementDate(settlementDate);
 		} catch (ParseException e) {			
 			e.printStackTrace();

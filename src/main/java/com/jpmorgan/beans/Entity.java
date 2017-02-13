@@ -1,5 +1,10 @@
 package com.jpmorgan.beans;
 
+/**
+ * Entities bean
+ * @author Fernando
+ *
+ */
 public class Entity implements IEntity {
 	
 	private String name;

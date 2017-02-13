@@ -3,8 +3,6 @@ package com.jpmorgan.beans;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.stereotype.Service;
-
 public class Ranking {
 
 	private Map<IEntity, Double> map = new HashMap<IEntity, Double>();
